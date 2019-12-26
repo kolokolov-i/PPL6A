@@ -21,7 +21,7 @@ int main()
 	while (flag) {
 		sleepT = rand() % 500;
 		Sleep(sleepT);
-		Message* message = new Message(Code::None, Code::WRITER, generateMessage());
+		Message* message = new Message(Code::None, writerId, generateMessage());
 		channel->write(message);
 		cout << "Writer #" << writerId << ": " << message->data << endl;
 		delete message;

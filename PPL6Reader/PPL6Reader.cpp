@@ -19,10 +19,10 @@ int main()
 	cout << "Reader #" << readerId << " started" << endl;
 	bool flag = true;
 	while (flag) {
-		sleepT = rand() % 1000;
+		sleepT = rand() % 500;
 		Sleep(sleepT);
 		Message* message = channel->read();
-		cout << "Reader #" << readerId << ": " << message->data << endl;
+		cout << "Reader #" << readerId << ": @" << message->code << " -> " << message->data << endl;
 		delete message;
 	}
 }

@@ -114,7 +114,7 @@ public:
 		//writeState();
 		estafeta();
 		char* p = reinterpret_cast<char*>(buffer);
-		message = new Message(p+20);
+		message = new Message(p + 20);
 		WaitForSingleObject(semE, INFINITE);
 		readState();
 		numR--;
