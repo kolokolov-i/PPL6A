@@ -16,12 +16,14 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	ChannelEstaf* channel = new ChannelEstaf(L"General");
+	cout << "Writer #" << writerId << " started" << endl;
 	bool flag = true;
 	while (flag) {
-		sleepT = rand() % 200;
+		sleepT = rand() % 500;
 		Sleep(sleepT);
 		Message* message = new Message(Code::None, Code::WRITER, generateMessage());
 		channel->write(message);
+		cout << "Writer #" << writerId << ": " << message->data << endl;
 		delete message;
 	}
 }
@@ -34,3 +36,5 @@ string generateMessage() {
 		adata[j] = c;
 	}
 	adata[len] = 0;
+	return string(adata);
+}
